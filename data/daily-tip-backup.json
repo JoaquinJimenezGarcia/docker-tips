@@ -1,0 +1,9 @@
+{
+  "tip": {
+    "command": "docker system prune -a",
+    "description": "Removes unused data from your Docker system.",
+    "explanation": "This command removes all dangling images, unused networks, and stopped containers.  Use it to reclaim disk space and keep your Docker environment clean.  The `-a` flag ensures that all unused data, including volumes, is removed.  Exercise caution as this operation is irreversible."
+  },
+  "date": "2025-09-21",
+  "generatedAt": "2025-09-21T20:48:15.188Z"
+}

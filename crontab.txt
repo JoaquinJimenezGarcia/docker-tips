@@ -1,0 +1,3 @@
+# Cron job para generar el tip diario de Docker a las 8:00 AM
+# Generar tip diario a las 8:00 AM todos los días
+0 8 * * * cd /app && node scripts/generate-daily-tip.js >> logs/cron.log 2>&1

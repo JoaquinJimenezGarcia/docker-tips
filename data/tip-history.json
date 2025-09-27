@@ -1,0 +1,31 @@
+{
+  "currentTip": {
+    "tip": {
+      "command": "docker system prune -a",
+      "description": "Removes unused Docker resources.",
+      "explanation": "This command removes stopped containers, unused networks, dangling images (images without associated containers), and build cache. Use this regularly to reclaim disk space and keep your Docker environment clean.  The `-a` flag ensures all unused resources are removed, including volumes.  Use with caution as data will be lost, consider using `docker system prune -v --dry-run` to see what would be removed before deleting anything."
+    },
+    "date": "2025-09-21",
+    "generatedAt": "2025-09-21T20:48:41.126Z"
+  },
+  "history": [
+    {
+      "tip": {
+        "command": "docker ps -a",
+        "description": "List all containers (running and stopped)",
+        "explanation": "This command shows all containers in your system, both running and stopped. Use -a flag to see stopped containers too. Essential for container management and debugging."
+      },
+      "date": "2025-09-20",
+      "generatedAt": "2025-09-20T20:47:56.572Z"
+    },
+    {
+      "tip": {
+        "command": "docker logs --follow <container>",
+        "description": "Follow container logs in real time",
+        "explanation": "Useful for debugging and monitoring. The --follow flag keeps the connection open to see new logs as they appear."
+      },
+      "date": "2025-09-19",
+      "generatedAt": "2025-09-19T20:47:56.572Z"
+    }
+  ]
+}

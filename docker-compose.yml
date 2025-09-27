@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  docker-tips:
+    build: .
+    ports:
+      - "3030:3030"
+    volumes:
+      - docker-tips-data:/app/data
+      - docker-tips-logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - PORT=3030
+      # Add your Gemini API key here
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-your_gemini_api_key_here}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3030/api/docker-tip"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  docker-tips-data:
+    driver: local
+  docker-tips-logs:
+    driver: local
+
