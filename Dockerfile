@@ -40,9 +40,6 @@ COPY crontab.txt /etc/cron.d/docker-tips-cron
 RUN chmod 0644 /etc/cron.d/docker-tips-cron
 RUN crontab /etc/cron.d/docker-tips-cron
 
-# Create startup script
-RUN bash -c 'cat > /app/start.sh << "EOF"
-#!/bin/bash
 
 RUN echo '#!/bin/bash' > /app/start.sh && \
     echo '' >> /app/start.sh && \
