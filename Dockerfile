@@ -41,17 +41,14 @@ RUN chmod 0644 /etc/cron.d/docker-tips-cron
 RUN crontab /etc/cron.d/docker-tips-cron
 
 # Create startup script
-RUN cat > /app/start.sh << 'EOF'
+RUN bash -c 'cat > /app/start.sh << "EOF"
 #!/bin/bash
 
-# Start cron daemon
-RUN ["crond", "-f", "&"]
-
-# Wait a moment for cron to start
-RUN ["sleep", "2"]
-
-# Start the Next.js application
-RUN ["exec", "pnpm", "start"]
+RUN echo '#!/bin/bash' > /app/start.sh && \
+    echo '' >> /app/start.sh && \
+    echo 'crond -f &' >> /app/start.sh && \
+    echo 'sleep 2' >> /app/start.sh && \
+    echo 'exec pnpm start' >> /app/start.sh
 
 RUN chmod +x /app/start.sh
 
