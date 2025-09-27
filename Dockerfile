@@ -45,14 +45,13 @@ RUN cat > /app/start.sh << 'EOF'
 #!/bin/bash
 
 # Start cron daemon
-crond -f &
+RUN ["crond", "-f", "&"]
 
 # Wait a moment for cron to start
-sleep 2
+RUN ["sleep", "2"]
 
 # Start the Next.js application
-exec pnpm start
-EOF
+RUN ["exec", "pnpm", "start"]
 
 RUN chmod +x /app/start.sh
 
